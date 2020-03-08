@@ -1,3 +1,13 @@
+module "iam_vpc_flow_logs_publisher" {
+  source = "../utility/iam/create-vpc-flow-logs-publisher"
+
+  providers = {
+    aws = aws.member
+  }
+
+  account_name = "${var.account_name}"
+}
+
 module "harden_default_vpc" {
   source = "../utility/networking/harden-default-vpc-in-all-regions"
 
@@ -21,5 +31,5 @@ module "harden_default_vpc" {
   }
 
   account_name                     = "${var.account_name}"
-  vpc_flow_logs_publisher_role_arn = "${data.terraform_remote_state.master.outputs.vpc_flow_logs_publisher_role_arn}"
+  vpc_flow_logs_publisher_role_arn = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
 }

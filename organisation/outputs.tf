@@ -65,5 +65,5 @@ output "terragrunt_data_reader_policy_arn" {
 }
 
 output "vpc_flow_logs_publisher_role_arn" {
-  value = "${aws_iam_role.vpc_flow_logs_publisher.arn}"
+  value = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
 }
