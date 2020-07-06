@@ -44,6 +44,8 @@ data "aws_iam_policy_document" "cloudtrail_bucket_policy" {
 }
 
 resource "aws_s3_bucket" "cloudtrail" {
+  #checkov:skip=CKV_AWS_52:Not currently possible to enable MFA delete through Terraform
+
   policy = data.aws_iam_policy_document.cloudtrail_bucket_policy.json
   bucket = var.cloudtrail_bucket_name
   acl    = "log-delivery-write"
