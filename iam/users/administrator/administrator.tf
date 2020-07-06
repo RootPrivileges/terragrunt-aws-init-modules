@@ -13,7 +13,6 @@ resource "aws_iam_access_key" "admin_user" {
   pgp_key = "keybase:${var.keybase}"
 }
 
-
 resource "aws_iam_user_group_membership" "administrator_groups" {
   user = aws_iam_user.admin_user.name
 

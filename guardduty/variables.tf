@@ -1,10 +1,13 @@
 variable "master_account_id" {
   description = "AWS account ID for master account."
-  default     = ""
+  type        = string
+
+  default = ""
 }
 
 variable "master_detector_ids" {
   description = "A map of GuardDuty detector IDs in the master account."
+
   default = {
     "ap-northeast-1" = ""
     "ap-northeast-2" = ""
@@ -27,5 +30,7 @@ variable "master_detector_ids" {
 
 variable "member_account_email" {
   description = "AWS email address for member account."
-  default     = ""
+  type        = string
+
+  default = ""
 }

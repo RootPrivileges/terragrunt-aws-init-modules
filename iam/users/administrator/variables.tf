@@ -4,6 +4,6 @@ variable "admin_email" {
 }
 
 variable "keybase" {
-  description = "The keybase profile to encrypt the secret_key"
+  description = "The keybase profile to encrypt secrets"
   type        = string
 }

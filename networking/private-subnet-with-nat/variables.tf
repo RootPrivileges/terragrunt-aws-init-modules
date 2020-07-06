@@ -6,7 +6,8 @@ variable "account_name" {
 variable "acl_rule_number" {
   description = "The ACL rule number for the new subnet"
   type        = number
-  default     = 0
+
+  default = 0
 }
 
 variable "availability_zone" {
@@ -17,7 +18,8 @@ variable "availability_zone" {
 variable "public_subnet_acl_rule_number" {
   description = "The ACL rule number for the target subnet"
   type        = number
-  default     = 0
+
+  default = 0
 }
 
 variable "public_subnet_name" {
@@ -38,7 +40,8 @@ variable "subnet_name" {
 variable "target_subnet" {
   description = "The name of the subnet to create bi-directional network ACLs with"
   type        = string
-  default     = ""
+
+  default = ""
 }
 
 variable "tfstate_global_bucket" {

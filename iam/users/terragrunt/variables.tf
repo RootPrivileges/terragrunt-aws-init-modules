@@ -1,5 +1,5 @@
 variable "keybase" {
-  description = "The keybase profile to use to encrypt the secret key"
+  description = "The keybase profile to encrypt secrets"
   type        = string
 }
 

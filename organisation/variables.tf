@@ -6,7 +6,8 @@ variable "admin_email" {
 variable "administrator_default_arn" {
   description = "The default ARN for Administrators"
   type        = string
-  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
+
+  default = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
 variable "audit_logs_bucket_name" {
@@ -17,7 +18,8 @@ variable "audit_logs_bucket_name" {
 variable "billing_alarm_currency" {
   description = "The currency of the billing alarm"
   type        = string
-  default     = "USD"
+
+  default = "USD"
 }
 
 variable "billing_alarm_threshold" {
@@ -28,7 +30,8 @@ variable "billing_alarm_threshold" {
 variable "billing_default_arn" {
   description = "The default ARN for Billing"
   type        = string
-  default     = "arn:aws:iam::aws:policy/job-function/Billing"
+
+  default = "arn:aws:iam::aws:policy/job-function/Billing"
 }
 
 variable "cloudtrail_bucket_name" {

@@ -6,7 +6,8 @@ variable "availability_zone" {
 variable "subnet_acl_rule_number" {
   description = "The rule number to be used in the subnet network ACL"
   type        = number
-  default     = 0
+
+  default = 0
 }
 
 variable "subnet_cidr" {
@@ -22,19 +23,22 @@ variable "subnet_name" {
 variable "target_subnet_acl_id" {
   description = "The ID of the target subnet network ACL"
   type        = string
-  default     = ""
+
+  default = ""
 }
 
 variable "target_subnet_acl_rule_number" {
   description = "The rule number to be used in the target subnet network ACL"
   type        = number
-  default     = 0
+
+  default = 0
 }
 
 variable "target_subnet_cidr_block" {
   description = "The CIDR block of the subnet to create bi-directional network ACLs with"
   type        = string
-  default     = ""
+
+  default = ""
 }
 
 variable "vpc_id" {
