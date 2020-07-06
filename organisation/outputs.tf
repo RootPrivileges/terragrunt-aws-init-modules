@@ -56,6 +56,14 @@ output "master_billing_role_policy_arn" {
   value = "${module.assume_role_master_billing.policy_arn}"
 }
 
+output "support_user_name" {
+  value = "${aws_iam_user.support_user.name}"
+}
+
+output "support_user_password" {
+  value = "${aws_iam_user_login_profile.support_user.encrypted_password}"
+}
+
 output "terragrunt_data_administrator_policy_arn" {
   value = "${aws_iam_policy.terragrunt_data_administrator.arn}"
 }
