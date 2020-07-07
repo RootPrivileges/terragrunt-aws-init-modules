@@ -12,7 +12,7 @@ variable "aws_region" {
 }
 
 provider "aws" {
-  version = "~> 2.39"
+  version = "~> 2.69"
   region  = var.aws_region
 }
 
