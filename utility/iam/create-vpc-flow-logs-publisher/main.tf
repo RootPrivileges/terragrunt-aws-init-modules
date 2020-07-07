@@ -11,11 +11,8 @@ data "aws_iam_policy_document" "vpc_flow_logs_publisher_assume_role_policy" {
 data "aws_iam_policy_document" "vpc_flow_logs_publish_policy" {
   statement {
     actions = [
-      "logs:CreateLogGroup",
       "logs:CreateLogStream",
-      "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
-      "logs:DescribeLogStreams"
+      "logs:PutLogEvents"
     ]
     resources = ["*"]
   }
