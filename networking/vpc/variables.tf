@@ -19,7 +19,7 @@ variable "tfstate_global_bucket_region" {
 }
 
 variable "vpc_log_group_name" {
-  description = "The name of CloudWatch Logs group to which VPC Flow Logs are delivered."
+  description = "The name of CloudWatch Logs group to which VPC Flow Logs are delivered"
   type        = string
 
   default = "vpc-flow-logs"
