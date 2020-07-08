@@ -1,5 +1,5 @@
 variable "power_user_default_arn" {
-  description = "The default ARN for Administrators"
+  description = "The default ARN for developers"
   type        = string
   default     = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
