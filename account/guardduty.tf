@@ -37,7 +37,7 @@ module "guardduty" {
     aws.member-us-west-2      = aws.member-us-west-2
   }
 
-  master_account_id    = "${data.terraform_remote_state.master.outputs.master_account_id}"
-  master_detector_ids  = "${data.terraform_remote_state.master.outputs.master_detector_ids}"
+  master_account_id    = "${var.master_account_id}"
+  master_detector_ids  = "${var.master_detector_ids}"
   member_account_email = "${aws_organizations_account.account.email}"
 }

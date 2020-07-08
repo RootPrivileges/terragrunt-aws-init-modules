@@ -23,7 +23,7 @@ module "aws-config" {
 
   account_id            = "${aws_organizations_account.account.id}"
   account_name          = "${var.account_name}"
-  audit_logs_bucket_arn = "${data.terraform_remote_state.master.outputs.audit_logs_bucket_arn}"
-  audit_logs_bucket_id  = "${data.terraform_remote_state.master.outputs.audit_logs_bucket_id}"
+  audit_logs_bucket_arn = "${var.audit_logs_bucket_arn}"
+  audit_logs_bucket_id  = "${var.audit_logs_bucket_id}"
   region                = "${var.aws_region}"
 }
