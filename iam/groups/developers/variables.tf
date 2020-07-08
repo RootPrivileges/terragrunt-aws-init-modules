@@ -5,6 +5,13 @@ variable "power_user_default_arn" {
   default = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
 
+variable "role_name" {
+  description = "The name of the role for developers"
+  type        = string
+
+  default = "Developer"
+}
+
 variable "staging_account_id" {
   description = "AWS account ID for the Staging account"
   type        = string

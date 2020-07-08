@@ -4,7 +4,7 @@ module "assume_role_staging_power_user" {
   account_name            = "${var.staging_account_name}"
   account_id              = "${var.staging_account_id}"
   assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_master.json}"
-  role                    = "PowerUser"
+  role                    = "${var.role_name}"
   role_policy_arn         = "${var.power_user_default_arn}"
 }
 
