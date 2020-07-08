@@ -7,6 +7,7 @@ variable "master_account_id" {
 
 variable "master_detector_ids" {
   description = "A map of GuardDuty detector IDs in the master account."
+  type        = map(string)
 
   default = {
     "ap-northeast-1" = ""
