@@ -3,11 +3,6 @@ variable "account_id" {
   type        = string
 }
 
-variable "account_name" {
-  description = "The name of the account"
-  type        = string
-}
-
 variable "availability_zone" {
   description = "The Availability Zone to create the subnet in"
   type        = string

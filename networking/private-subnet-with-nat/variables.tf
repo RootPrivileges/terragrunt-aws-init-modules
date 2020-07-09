@@ -3,11 +3,6 @@ variable "account_id" {
   type        = string
 }
 
-variable "account_name" {
-  description = "The name of the account"
-  type        = string
-}
-
 variable "acl_rule_number" {
   description = "The ACL rule number for the new subnet"
   type        = number
