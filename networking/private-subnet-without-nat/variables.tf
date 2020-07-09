@@ -1,3 +1,8 @@
+variable "account_id" {
+  description = "The ID of the account"
+  type        = string
+}
+
 variable "account_name" {
   description = "The name of the account"
   type        = string
@@ -25,5 +30,10 @@ variable "tfstate_global_bucket" {
 
 variable "tfstate_global_bucket_region" {
   description = "The region of the S3 bucket that holds Terraform state"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "The ID of the account VPC"
   type        = string
 }
