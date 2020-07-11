@@ -20,5 +20,5 @@ output "org_account_access_role_policy_arn" {
 
 output "vpc_flow_logs_publisher_role_arn" {
   value       = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
-  description = "The ARN of the IAM Role which publishes VPC Flow Logs"
+  description = "The ARN of the IAM Role that publishes VPC Flow Logs"
 }
