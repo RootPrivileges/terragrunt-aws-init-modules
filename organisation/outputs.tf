@@ -74,11 +74,13 @@ output "organisation_admin_role_policy_arn" {
 output "support_user_name" {
   value       = "${aws_iam_user.support_user.name}"
   description = "The login username of the user able to assume the AWS support role"
+  sensitive   = true
 }
 
 output "support_user_password" {
   value       = "${aws_iam_user_login_profile.support_user.encrypted_password}"
   description = "The login password of the user able to assume the AWS support role"
+  sensitive   = true
 }
 
 output "terragrunt_data_administrator_policy_arn" {
