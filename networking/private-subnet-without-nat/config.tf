@@ -16,6 +16,6 @@ provider "aws" {
   region  = var.aws_region
 
   assume_role {
-    role_arn = "arn:aws:iam::${data.terraform_remote_state.account.outputs.account_id}:role/OrganizationAccountAccessRole"
+    role_arn = "arn:aws:iam::${var.account_id}:role/OrganizationAccountAccessRole"
   }
 }

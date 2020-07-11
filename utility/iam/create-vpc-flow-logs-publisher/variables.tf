@@ -4,14 +4,14 @@ variable "account_name" {
 }
 
 variable "vpc_iam_role_name" {
-  description = "The name of the IAM Role which VPC Flow Logs will use."
+  description = "The name of the IAM Role which VPC Flow Logs will use"
   type        = string
 
   default = "VPCFlowLogsPublisherRole"
 }
 
 variable "vpc_iam_role_policy_name" {
-  description = "The name of the IAM Role Policy which VPC Flow Logs will use."
+  description = "The name of the IAM Role Policy which VPC Flow Logs will use"
   type        = string
 
   default = "VPCFlowLogsPublisherRole"

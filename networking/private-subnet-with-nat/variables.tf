@@ -1,5 +1,5 @@
-variable "account_name" {
-  description = "The name of the account"
+variable "account_id" {
+  description = "The ID of the account"
   type        = string
 }
 
@@ -15,11 +15,26 @@ variable "availability_zone" {
   type        = string
 }
 
+variable "public_subnet_acl_id" {
+  description = "The ID of the public subnet network ACL"
+  type        = string
+}
+
 variable "public_subnet_acl_rule_number" {
-  description = "The ACL rule number for the target subnet"
+  description = "The ACL rule number for the public subnet"
   type        = number
 
   default = 0
+}
+
+variable "public_subnet_cidr_block" {
+  description = "The CIDR of the public subnet to create bi-directional network ACLs with"
+  type        = string
+}
+
+variable "public_subnet_id" {
+  description = "The ID of the public subnet"
+  type        = string
 }
 
 variable "public_subnet_name" {
@@ -51,5 +66,10 @@ variable "tfstate_global_bucket" {
 
 variable "tfstate_global_bucket_region" {
   description = "The region of the S3 bucket that holds Terraform state"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "The ID of the account VPC"
   type        = string
 }

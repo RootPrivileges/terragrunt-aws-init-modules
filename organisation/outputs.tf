@@ -56,6 +56,10 @@ output "master_billing_role_policy_arn" {
   value = "${module.assume_role_master_billing.policy_arn}"
 }
 
+output "organisation_admin_role_policy_arn" {
+  value = "${var.organisation_admin_role_policy_arn}"
+}
+
 output "support_user_name" {
   value = "${aws_iam_user.support_user.name}"
 }

@@ -1,3 +1,8 @@
+variable "account_id" {
+  description = "The ID of the account"
+  type        = string
+}
+
 variable "account_name" {
   description = "The name of the account"
   type        = string
@@ -18,8 +23,13 @@ variable "tfstate_global_bucket_region" {
   type        = string
 }
 
+variable "vpc_flow_logs_publisher_role_arn" {
+  description = "The ARN of the IAM Role which will be used to publish VPC Flow Logs"
+  type        = string
+}
+
 variable "vpc_log_group_name" {
-  description = "The name of CloudWatch Logs group to which VPC Flow Logs are delivered."
+  description = "The name of CloudWatch Logs group to which VPC Flow Logs are delivered"
   type        = string
 
   default = "vpc-flow-logs"
