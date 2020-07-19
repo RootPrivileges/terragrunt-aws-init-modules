@@ -12,14 +12,14 @@ resource "aws_iam_group_policy_attachment" "assume_role_management_admin" {
   policy_arn = var.management_admin_role_policy_arn
 }
 
+resource "aws_iam_group_policy_attachment" "assume_role_preprod_admin" {
+  group      = aws_iam_group.administrators.name
+  policy_arn = var.preprod_admin_role_policy_arn
+}
+
 resource "aws_iam_group_policy_attachment" "assume_role_production_admin" {
   group      = aws_iam_group.administrators.name
   policy_arn = var.production_admin_role_policy_arn
-}
-
-resource "aws_iam_group_policy_attachment" "assume_role_staging_admin" {
-  group      = aws_iam_group.administrators.name
-  policy_arn = var.staging_admin_role_policy_arn
 }
 
 resource "aws_iam_group_policy_attachment" "assume_role_terragrunt_data_reader" {
