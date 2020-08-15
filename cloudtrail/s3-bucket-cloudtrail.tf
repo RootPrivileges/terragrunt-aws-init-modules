@@ -85,18 +85,8 @@ resource "aws_s3_bucket" "cloudtrail" {
       storage_class = "STANDARD_IA"
     }
 
-    transition {
-      days          = "60"
-      storage_class = "GLACIER"
-    }
-
     noncurrent_version_expiration {
-      days = "90"
-    }
-
-    noncurrent_version_transition {
-      days          = "30"
-      storage_class = "GLACIER"
+      days = "30"
     }
   }
 }

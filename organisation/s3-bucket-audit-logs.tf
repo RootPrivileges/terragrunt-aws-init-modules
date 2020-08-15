@@ -28,8 +28,8 @@ resource "aws_s3_bucket" "audit_logs" {
     enabled = true
 
     transition {
-      days          = "60"
-      storage_class = "GLACIER"
+      days          = "30"
+      storage_class = "STANDARD_IA"
     }
   }
 }
