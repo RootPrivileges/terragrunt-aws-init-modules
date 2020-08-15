@@ -31,6 +31,10 @@ resource "aws_s3_bucket" "audit_logs" {
       days          = "30"
       storage_class = "STANDARD_IA"
     }
+
+    noncurrent_version_expiration {
+      days = "30"
+    }
   }
 }
 
