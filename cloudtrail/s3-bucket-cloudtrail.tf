@@ -74,6 +74,7 @@ resource "aws_s3_bucket" "cloudtrail" {
   }
 
   lifecycle_rule {
+    id      = "auto-archive"
     enabled = true
 
     expiration {
