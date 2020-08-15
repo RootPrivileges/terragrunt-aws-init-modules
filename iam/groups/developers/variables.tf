@@ -12,13 +12,13 @@ variable "role_name" {
   default = "Developer"
 }
 
-variable "staging_account_id" {
-  description = "AWS account ID for the Staging account"
+variable "preprod_account_id" {
+  description = "AWS account ID for the Preprod account"
   type        = string
 }
 
-variable "staging_account_name" {
-  description = "The name of the Staging account"
+variable "preprod_account_name" {
+  description = "The name of the Preprod account"
   type        = string
 }
 

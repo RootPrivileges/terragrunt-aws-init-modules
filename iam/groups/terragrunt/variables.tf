@@ -13,8 +13,8 @@ variable "production_org_account_access_role_policy_arn" {
   type        = string
 }
 
-variable "staging_org_account_access_role_policy_arn" {
-  description = "The ARN of the AssumeOrganizationAccountAccessRole policy in the Staging account"
+variable "preprod_org_account_access_role_policy_arn" {
+  description = "The ARN of the AssumeOrganizationAccountAccessRole policy in the Preprod account"
   type        = string
 }
 

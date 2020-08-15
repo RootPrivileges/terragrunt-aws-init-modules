@@ -18,13 +18,13 @@ variable "organisation_admin_role_policy_arn" {
   type        = string
 }
 
-variable "production_admin_role_policy_arn" {
-  description = "The ARN of the Administrator role policy in the Production account"
+variable "preprod_admin_role_policy_arn" {
+  description = "The ARN of the Administrator role policy in the Preprod account"
   type        = string
 }
 
-variable "staging_admin_role_policy_arn" {
-  description = "The ARN of the Administrator role policy in the Staging account"
+variable "production_admin_role_policy_arn" {
+  description = "The ARN of the Administrator role policy in the Production account"
   type        = string
 }
 
