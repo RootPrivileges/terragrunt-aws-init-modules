@@ -21,7 +21,7 @@ module "aws-config" {
   }
 
   account_id            = data.aws_caller_identity.current.account_id
-  account_name          = "Master"
+  account_name          = "org"
   audit_logs_bucket_arn = aws_s3_bucket.audit_logs.arn
   audit_logs_bucket_id  = aws_s3_bucket.audit_logs.id
   region                = var.aws_region
@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "config_organisation_assume_role_policy" {
 }
 
 resource "aws_iam_role" "config_organisation_aggregator" {
-  name               = "MasterAWSConfigAggregatorRole"
+  name               = "OrgAWSConfigAggregatorRole"
   assume_role_policy = data.aws_iam_policy_document.config_organisation_assume_role_policy.json
 }
 
@@ -48,7 +48,7 @@ resource "aws_iam_role_policy_attachment" "config_organisation_aggregator" {
 }
 
 resource "aws_config_configuration_aggregator" "organisation" {
-  name = "master-aggregator"
+  name = "organisation-aggregator"
 
   organization_aggregation_source {
     all_regions = true

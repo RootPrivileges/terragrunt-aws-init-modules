@@ -1,63 +1,63 @@
 provider "aws" {
-  alias = "master-ap-northeast-1"
+  alias = "org-ap-northeast-1"
 }
 
 provider "aws" {
-  alias = "master-ap-northeast-2"
+  alias = "org-ap-northeast-2"
 }
 
 provider "aws" {
-  alias = "master-ap-south-1"
+  alias = "org-ap-south-1"
 }
 
 provider "aws" {
-  alias = "master-ap-southeast-1"
+  alias = "org-ap-southeast-1"
 }
 
 provider "aws" {
-  alias = "master-ap-southeast-2"
+  alias = "org-ap-southeast-2"
 }
 
 provider "aws" {
-  alias = "master-ca-central-1"
+  alias = "org-ca-central-1"
 }
 
 provider "aws" {
-  alias = "master-eu-central-1"
+  alias = "org-eu-central-1"
 }
 
 provider "aws" {
-  alias = "master-eu-north-1"
+  alias = "org-eu-north-1"
 }
 
 provider "aws" {
-  alias = "master-eu-west-1"
+  alias = "org-eu-west-1"
 }
 
 provider "aws" {
-  alias = "master-eu-west-2"
+  alias = "org-eu-west-2"
 }
 
 provider "aws" {
-  alias = "master-eu-west-3"
+  alias = "org-eu-west-3"
 }
 
 provider "aws" {
-  alias = "master-sa-east-1"
+  alias = "org-sa-east-1"
 }
 
 provider "aws" {
-  alias = "master-us-east-1"
+  alias = "org-us-east-1"
 }
 
 provider "aws" {
-  alias = "master-us-east-2"
+  alias = "org-us-east-2"
 }
 
 provider "aws" {
-  alias = "master-us-west-1"
+  alias = "org-us-west-1"
 }
 
 provider "aws" {
-  alias = "master-us-west-2"
+  alias = "org-us-west-2"
 }

@@ -1,3 +1,8 @@
+output "account_id" {
+  value       = "${data.aws_caller_identity.current.account_id}"
+  description = "The ID of the Organisation"
+}
+
 output "assume_terragrunt_administrator_role_policy_arn" {
   value       = "${module.assume_role_terragrunt_administrator.policy_arn}"
   description = "The ARN of the AssumeTerragruntAdministratorRole policy"
@@ -23,6 +28,11 @@ output "audit_logs_bucket_id" {
   description = "The ID of the S3 bucket holding audit data"
 }
 
+output "billing_role_policy_arn" {
+  value       = "${module.assume_role_billing.policy_arn}"
+  description = "The ARN of the Billing rol policy"
+}
+
 output "cloudtrail_bucket_arn" {
   value       = "${module.cloudtrail.cloudtrail_bucket_arn}"
   description = "The ARN of the S3 bucket holding CloudTrail data"
@@ -33,13 +43,7 @@ output "cloudtrail_bucket_id" {
   description = "The ID of the S3 bucket holding CloudTrail data"
 }
 
-
-output "master_account_id" {
-  value       = "${data.aws_caller_identity.current.account_id}"
-  description = "The ID of the Organisation"
-}
-
-output "master_detector_ids" {
+output "detector_ids" {
   value       = {
     "ap-northeast-1" = "${module.guardduty.detector_ap-northeast-1}"
     "ap-northeast-2" = "${module.guardduty.detector_ap-northeast-2}"
@@ -58,12 +62,8 @@ output "master_detector_ids" {
     "us-west-1"      = "${module.guardduty.detector_us-west-1}"
     "us-west-2"      = "${module.guardduty.detector_us-west-2}"
   }
-  description = "The IDs of GuardDuty detectors in each region"
-}
 
-output "master_billing_role_policy_arn" {
-  value       = "${module.assume_role_master_billing.policy_arn}"
-  description = "The ARN of the Billing rol policy"
+  description = "The IDs of GuardDuty detectors in each region"
 }
 
 output "organisation_admin_role_policy_arn" {

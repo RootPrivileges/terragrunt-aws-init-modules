@@ -30,13 +30,13 @@ variable "domain" {
   type        = string
 }
 
-variable "master_account_id" {
-  description = "AWS account ID for master account"
+variable "org_account_id" {
+  description = "AWS account ID for the organisation account"
   type        = string
 }
 
-variable "master_detector_ids" {
-  description = "A map of GuardDuty detector IDs in the master account"
+variable "org_detector_ids" {
+  description = "A map of GuardDuty detector IDs in the organisation account"
   type        = map(string)
 }
 

@@ -2,22 +2,22 @@ module "guardduty" {
   source = "../guardduty"
 
   providers = {
-    aws.master-ap-northeast-1 = aws.master-ap-northeast-1
-    aws.master-ap-northeast-2 = aws.master-ap-northeast-2
-    aws.master-ap-south-1     = aws.master-ap-south-1
-    aws.master-ap-southeast-1 = aws.master-ap-southeast-1
-    aws.master-ap-southeast-2 = aws.master-ap-southeast-2
-    aws.master-ca-central-1   = aws.master-ca-central-1
-    aws.master-eu-central-1   = aws.master-eu-central-1
-    aws.master-eu-north-1     = aws.master-eu-north-1
-    aws.master-eu-west-1      = aws.master-eu-west-1
-    aws.master-eu-west-2      = aws.master-eu-west-2
-    aws.master-eu-west-3      = aws.master-eu-west-3
-    aws.master-sa-east-1      = aws.master-sa-east-1
-    aws.master-us-east-1      = aws.master-us-east-1
-    aws.master-us-east-2      = aws.master-us-east-2
-    aws.master-us-west-1      = aws.master-us-west-1
-    aws.master-us-west-2      = aws.master-us-west-2
+    aws.org-ap-northeast-1 = aws.org-ap-northeast-1
+    aws.org-ap-northeast-2 = aws.org-ap-northeast-2
+    aws.org-ap-south-1     = aws.org-ap-south-1
+    aws.org-ap-southeast-1 = aws.org-ap-southeast-1
+    aws.org-ap-southeast-2 = aws.org-ap-southeast-2
+    aws.org-ca-central-1   = aws.org-ca-central-1
+    aws.org-eu-central-1   = aws.org-eu-central-1
+    aws.org-eu-north-1     = aws.org-eu-north-1
+    aws.org-eu-west-1      = aws.org-eu-west-1
+    aws.org-eu-west-2      = aws.org-eu-west-2
+    aws.org-eu-west-3      = aws.org-eu-west-3
+    aws.org-sa-east-1      = aws.org-sa-east-1
+    aws.org-us-east-1      = aws.org-us-east-1
+    aws.org-us-east-2      = aws.org-us-east-2
+    aws.org-us-west-1      = aws.org-us-west-1
+    aws.org-us-west-2      = aws.org-us-west-2
 
     aws.member-ap-northeast-1 = aws.member-ap-northeast-1
     aws.member-ap-northeast-2 = aws.member-ap-northeast-2
@@ -37,7 +37,7 @@ module "guardduty" {
     aws.member-us-west-2      = aws.member-us-west-2
   }
 
-  master_account_id    = "${var.master_account_id}"
-  master_detector_ids  = "${var.master_detector_ids}"
+  org_account_id    = "${var.org_account_id}"
+  org_detector_ids  = "${var.org_detector_ids}"
   member_account_email = "${aws_organizations_account.account.email}"
 }

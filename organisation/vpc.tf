@@ -1,7 +1,7 @@
 module "iam_vpc_flow_logs_publisher" {
   source = "../utility/iam/create-vpc-flow-logs-publisher"
 
-  account_name = "master"
+  account_name = "org"
 }
 
 module "harden_default_vpc" {
@@ -26,6 +26,6 @@ module "harden_default_vpc" {
     aws.us-west-2      = aws.us-west-2
   }
 
-  account_name                     = "master"
+  account_name                     = "organisation-account"
   vpc_flow_logs_publisher_role_arn = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
 }

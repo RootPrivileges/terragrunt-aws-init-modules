@@ -1,8 +1,8 @@
 data "aws_caller_identity" "current" {}
 
-data "aws_iam_policy_document" "assume_from_master" {
+data "aws_iam_policy_document" "assume_from_organisation" {
   statement {
-    sid     = "AssumeFromMaster"
+    sid     = "AssumeFromOrganisation"
     actions = ["sts:AssumeRole"]
 
     principals {
@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "assume_from_master" {
   }
 }
 
-resource "aws_organizations_organization" "master" {
+resource "aws_organizations_organization" "organisation" {
   feature_set = "ALL"
 
   aws_service_access_principals = [
@@ -32,9 +32,9 @@ resource "aws_organizations_organization" "master" {
 module "assume_role_organisation_admin" {
   source = "../../iam/create-role-with-assume"
 
-  account_name            = "master"
+  account_name            = "org"
   account_id              = "${data.aws_caller_identity.current.account_id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.assume_from_master.json}"
+  assume_role_policy_json = "${data.aws_iam_policy_document.assume_from_organisation.json}"
   role                    = "Administrator"
   role_policy_arn         = "arn:aws:iam::aws:policy/AdministratorAccess"
 }

@@ -1,5 +1,5 @@
 provider "aws" {
-  alias = "master"
+  alias = "org"
 }
 
 provider "aws" {

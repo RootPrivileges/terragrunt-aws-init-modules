@@ -3,7 +3,7 @@ module "assume_role_preprod_power_user" {
 
   account_name            = "${var.preprod_account_name}"
   account_id              = "${var.preprod_account_id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_master.json}"
+  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
   role                    = "${var.role_name}"
   role_policy_arn         = "${var.power_user_default_arn}"
 }
