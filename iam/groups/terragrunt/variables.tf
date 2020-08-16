@@ -22,13 +22,3 @@ variable "terragrunt_data_administrator_policy_arn" {
   description = "The ARN of the TerragruntDataAdministrator policy, allowing write access to Terraform data"
   type        = string
 }
-
-variable "tfstate_global_bucket" {
-  description = "The S3 bucket that holds Terraform state"
-  type        = string
-}
-
-variable "tfstate_global_bucket_region" {
-  description = "The region of the S3 bucket that holds Terraform state"
-  type        = string
-}

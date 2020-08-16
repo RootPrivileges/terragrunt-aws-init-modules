@@ -27,13 +27,3 @@ variable "production_admin_role_policy_arn" {
   description = "The ARN of the Administrator role policy in the Production account"
   type        = string
 }
-
-variable "tfstate_global_bucket" {
-  description = "The S3 bucket that holds Terraform state"
-  type        = string
-}
-
-variable "tfstate_global_bucket_region" {
-  description = "The region of the S3 bucket that holds Terraform state"
-  type        = string
-}
