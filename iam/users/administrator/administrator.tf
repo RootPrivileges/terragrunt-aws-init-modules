@@ -1,5 +1,5 @@
 resource "aws_iam_user" "admin_user" {
-  name          = var.admin_email
+  name          = var.email_address
   force_destroy = true
 }
 
@@ -16,8 +16,8 @@ resource "aws_iam_access_key" "admin_user" {
 resource "aws_iam_user_group_membership" "administrator_groups" {
   user = aws_iam_user.admin_user.name
 
-  groups = [
-    "administrators",
-    "users"
-  ]
+  groups = concat([
+    var.administrators_group_name,
+    var.users_group_name
+  ], var.enable_terragrunt ? [var.terragrunt_group_name] : [])
 }
