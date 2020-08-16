@@ -1,4 +1,4 @@
-variable "developer_email" {
+variable "email_address" {
   description = "The email address of the developer, used as the username"
   type        = string
 }
