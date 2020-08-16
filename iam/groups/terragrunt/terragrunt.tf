@@ -1,5 +1,5 @@
 resource "aws_iam_group" "terragrunt" {
-  name = "terragrunt"
+  name = var.group_name
 }
 
 resource "aws_iam_group_policy_attachment" "terragrunt_data_administrator" {

@@ -9,7 +9,7 @@ module "assume_role_preprod_power_user" {
 }
 
 resource "aws_iam_group" "developers" {
-  name = "developers"
+  name = var.group_name
 }
 
 resource "aws_iam_group_policy_attachment" "assume_role_power_user" {

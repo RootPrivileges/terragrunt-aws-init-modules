@@ -1,5 +1,5 @@
 resource "aws_iam_group" "administrators" {
-  name = "administrators"
+  name = var.group_name
 }
 
 resource "aws_iam_group_policy_attachment" "assume_role_organisation_admin" {

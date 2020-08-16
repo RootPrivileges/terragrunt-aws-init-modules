@@ -3,6 +3,13 @@ variable "assume_terragrunt_administrator_role_policy_arn" {
   type        = string
 }
 
+variable "group_name" {
+  description = "The name for the terragrunt group"
+  type        = string
+
+  default = "terragrunt"
+}
+
 variable "management_org_account_access_role_policy_arn" {
   description = "The ARN of the AssumeOrganizationAccountAccessRole policy in the Management account"
   type        = string
