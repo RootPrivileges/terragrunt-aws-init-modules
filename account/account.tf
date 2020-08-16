@@ -1,18 +1,3 @@
-data "aws_iam_policy_document" "crossaccount_assume_from_master" {
-  statement {
-    sid     = "AssumeFromMaster"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type = "AWS"
-
-      identifiers = [
-        "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root",
-      ]
-    }
-  }
-}
-
 resource "aws_organizations_account" "account" {
   name  = var.account_name
   email = "${var.account_email_slug}@${var.domain}"
@@ -27,7 +12,7 @@ module "assume_role_account_administrator" {
 
   account_name            = "${var.account_name}"
   account_id              = "${aws_organizations_account.account.id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_master.json}"
+  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
   role                    = "Administrator"
   role_policy_arn         = "${var.administrator_default_arn}"
 }

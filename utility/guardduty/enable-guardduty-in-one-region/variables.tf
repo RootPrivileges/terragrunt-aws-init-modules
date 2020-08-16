@@ -5,15 +5,15 @@ variable "finding_publishing_frequency" {
   default = "SIX_HOURS"
 }
 
-variable "master_account_id" {
-  description = "AWS account ID for master account"
+variable "org_account_id" {
+  description = "AWS account ID for the organisation account"
   type        = string
 
   default = ""
 }
 
-variable "master_detector_id" {
-  description = "The ID of the GuardDuty detector in the default region of the master account"
+variable "org_detector_id" {
+  description = "The ID of the GuardDuty detector in the default region of the organisation account"
   type        = string
 
   default = ""
