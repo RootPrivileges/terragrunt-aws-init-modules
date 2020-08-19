@@ -8,6 +8,13 @@ variable "billing_role_policy_arn" {
   type        = string
 }
 
+variable "group_name" {
+  description = "The name for the administrators group"
+  type        = string
+
+  default = "administrators"
+}
+
 variable "management_admin_role_policy_arn" {
   description = "The ARN of the Administrator role policy in the Management account"
   type        = string

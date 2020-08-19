@@ -1,3 +1,10 @@
+variable "group_name" {
+  description = "The name for the developers group"
+  type        = string
+
+  default = "developers"
+}
+
 variable "power_user_default_arn" {
   description = "The default ARN for developers"
   type        = string

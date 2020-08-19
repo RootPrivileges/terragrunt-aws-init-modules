@@ -1,5 +1,5 @@
 resource "aws_iam_group" "finance" {
-  name = "finance"
+  name = var.group_name
 }
 
 resource "aws_iam_group_policy_attachment" "billing" {

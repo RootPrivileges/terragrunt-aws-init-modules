@@ -1,5 +1,5 @@
 resource "aws_iam_group" "users" {
-  name = "users"
+  name = var.group_name
 }
 
 resource "aws_iam_policy" "force_mfa" {

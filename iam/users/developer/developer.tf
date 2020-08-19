@@ -1,5 +1,5 @@
 resource "aws_iam_user" "developer_user" {
-  name          = var.developer_email
+  name          = var.email_address
   force_destroy = true
 }
 

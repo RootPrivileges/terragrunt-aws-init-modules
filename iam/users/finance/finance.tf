@@ -1,5 +1,5 @@
 resource "aws_iam_user" "finance_user" {
-  name          = var.finance_email
+  name          = var.email_address
   force_destroy = true
 }
 
