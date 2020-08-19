@@ -10,6 +10,11 @@ resource "aws_organizations_account" "account" {
 module "assume_role_account_administrator" {
   source = "../utility/iam/create-role-in-different-account-with-assume"
 
+  providers = {
+    aws                = aws
+    aws.assume_account = aws.member
+  }
+
   account_name            = "${var.account_name}"
   account_id              = "${aws_organizations_account.account.id}"
   assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"

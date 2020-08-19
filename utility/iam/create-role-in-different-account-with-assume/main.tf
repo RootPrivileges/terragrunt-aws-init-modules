@@ -1,9 +1,5 @@
 provider "aws" {
   alias = "assume_account"
-
-  assume_role {
-    role_arn = "arn:aws:iam::${var.account_id}:role/OrganizationAccountAccessRole"
-  }
 }
 
 module "create_role" {
