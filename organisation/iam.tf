@@ -1,5 +1,5 @@
 module "iam_baseline" {
-  source = "git::git@github.com:nozaq/terraform-aws-secure-baseline.git//modules/iam-baseline?ref=0.18.1"
+  source = "git::git@github.com:nozaq/terraform-aws-secure-baseline.git//modules/iam-baseline?ref=0.20.0"
 
   aws_account_id                  = data.aws_caller_identity.current.account_id
   manager_iam_role_name           = "OrgIamManagerRole"
