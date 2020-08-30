@@ -6,6 +6,7 @@ module "assume_role_terragrunt_administrator" {
   assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
   role                    = "TerragruntAdministrator"
   role_policy_arn         = "${var.administrator_default_arn}"
+  tags                    = var.tags
 }
 
 resource "aws_iam_policy" "terragrunt_data_administrator" {
@@ -22,6 +23,7 @@ module "assume_role_terragrunt_data_administrator" {
   assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
   role                    = "TerragruntDataAdministrator"
   role_policy_arn         = "${aws_iam_policy.terragrunt_data_administrator.arn}"
+  tags                    = var.tags
 }
 
 resource "aws_iam_policy" "terragrunt_data_reader" {
@@ -38,4 +40,5 @@ module "assume_role_terragrunt_data_reader" {
   assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
   role                    = "TerragruntDataReader"
   role_policy_arn         = "${aws_iam_policy.terragrunt_data_reader.arn}"
+  tags                    = var.tags
 }

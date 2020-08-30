@@ -22,3 +22,10 @@ variable "role_policy_arn" {
   description = "The ARN of the IAM policy to attach to the new role"
   type        = string
 }
+
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
+
+  default     = {}
+}
