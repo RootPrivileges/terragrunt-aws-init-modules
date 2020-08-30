@@ -11,6 +11,19 @@ on:
     branches: [ master ]
 
 jobs:
+  lint-job:
+    runs-on: ubuntu-latest
+    name: terraform-fmt
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Run Terraform fmt recursively
+        run: terraform fmt -check -recursive
+
   checkov-job:
     runs-on: ubuntu-latest
     name: checkov-action
