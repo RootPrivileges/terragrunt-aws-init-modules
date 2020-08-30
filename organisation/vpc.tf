@@ -2,6 +2,7 @@ module "iam_vpc_flow_logs_publisher" {
   source = "../utility/iam/create-vpc-flow-logs-publisher"
 
   account_name = "org"
+  tags         = var.tags
 }
 
 module "harden_default_vpc" {
@@ -27,5 +28,6 @@ module "harden_default_vpc" {
   }
 
   account_name                     = "organisation-account"
+  tags                             = var.tags
   vpc_flow_logs_publisher_role_arn = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
 }
