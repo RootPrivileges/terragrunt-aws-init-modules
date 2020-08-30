@@ -25,6 +25,7 @@ module "aws-config" {
   audit_logs_bucket_arn = aws_s3_bucket.audit_logs.arn
   audit_logs_bucket_id  = aws_s3_bucket.audit_logs.id
   region                = var.aws_region
+  tags                  = var.tags
 }
 
 resource "aws_iam_role" "config_organisation_aggregator" {

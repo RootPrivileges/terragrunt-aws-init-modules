@@ -8,6 +8,7 @@ module "config_baseline_ap-northeast-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ap-northeast-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_ap-northeast-2" {
@@ -20,6 +21,7 @@ module "config_baseline_ap-northeast-2" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ap-northeast-2"
+  tags                          = var.tags
 }
 
 module "config_baseline_ap-south-1" {
@@ -32,6 +34,7 @@ module "config_baseline_ap-south-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ap-south-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_ap-southeast-1" {
@@ -44,6 +47,7 @@ module "config_baseline_ap-southeast-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ap-southeast-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_ap-southeast-2" {
@@ -56,6 +60,7 @@ module "config_baseline_ap-southeast-2" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ap-southeast-2"
+  tags                          = var.tags
 }
 
 module "config_baseline_ca-central-1" {
@@ -68,6 +73,7 @@ module "config_baseline_ca-central-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "ca-central-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_eu-central-1" {
@@ -80,6 +86,7 @@ module "config_baseline_eu-central-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "eu-central-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_eu-north-1" {
@@ -92,6 +99,7 @@ module "config_baseline_eu-north-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "eu-north-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_eu-west-1" {
@@ -104,6 +112,7 @@ module "config_baseline_eu-west-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "eu-west-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_eu-west-2" {
@@ -116,6 +125,7 @@ module "config_baseline_eu-west-2" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "eu-west-2"
+  tags                          = var.tags
 }
 
 module "config_baseline_eu-west-3" {
@@ -128,6 +138,7 @@ module "config_baseline_eu-west-3" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "eu-west-3"
+  tags                          = var.tags
 }
 
 module "config_baseline_sa-east-1" {
@@ -140,6 +151,7 @@ module "config_baseline_sa-east-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "sa-east-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_us-east-1" {
@@ -152,6 +164,7 @@ module "config_baseline_us-east-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "us-east-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_us-east-2" {
@@ -164,6 +177,7 @@ module "config_baseline_us-east-2" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "us-east-2"
+  tags                          = var.tags
 }
 
 module "config_baseline_us-west-1" {
@@ -176,6 +190,7 @@ module "config_baseline_us-west-1" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "us-west-1"
+  tags                          = var.tags
 }
 
 module "config_baseline_us-west-2" {
@@ -188,4 +203,5 @@ module "config_baseline_us-west-2" {
   iam_role_arn                  = aws_iam_role.recorder.arn
   s3_bucket_name                = var.audit_logs_bucket_id
   include_global_resource_types = var.region == "us-west-2"
+  tags                          = var.tags
 }
