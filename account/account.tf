@@ -22,17 +22,6 @@ module "assume_role_account_administrator" {
   role_policy_arn         = "${var.administrator_default_arn}"
 }
 
-data "aws_iam_policy_document" "assume_role_organisation_account_access" {
-  statement {
-    sid     = "Assume${title(var.account_name)}OrganizationAccountAccessRole"
-    actions = ["sts:AssumeRole"]
-
-    resources = [
-      "arn:aws:iam::${aws_organizations_account.account.id}:role/OrganizationAccountAccessRole",
-    ]
-  }
-}
-
 resource "aws_iam_policy" "assume_role_organisation_account_access" {
   name        = "Assume${title(var.account_name)}OrganizationAccountAccessRole"
   policy      = data.aws_iam_policy_document.assume_role_organisation_account_access.json
