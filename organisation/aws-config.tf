@@ -27,16 +27,6 @@ module "aws-config" {
   region                = var.aws_region
 }
 
-data "aws_iam_policy_document" "config_organisation_assume_role_policy" {
-  statement {
-    principals {
-      type        = "Service"
-      identifiers = ["config.amazonaws.com"]
-    }
-    actions = ["sts:AssumeRole"]
-  }
-}
-
 resource "aws_iam_role" "config_organisation_aggregator" {
   name               = "OrgAWSConfigAggregatorRole"
   assume_role_policy = data.aws_iam_policy_document.config_organisation_assume_role_policy.json

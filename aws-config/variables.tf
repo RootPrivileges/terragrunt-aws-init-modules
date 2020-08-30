@@ -19,6 +19,6 @@ variable "audit_logs_bucket_id" {
 }
 
 variable "region" {
-  description = "The default region for AWS Config data to be held)"
+  description = "The default region for AWS Config data to be held"
   type        = string
 }
