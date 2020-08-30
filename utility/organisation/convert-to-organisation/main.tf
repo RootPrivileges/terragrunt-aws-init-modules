@@ -20,4 +20,5 @@ module "assume_role_organisation_admin" {
   assume_role_policy_json = "${data.aws_iam_policy_document.assume_from_organisation.json}"
   role                    = "Administrator"
   role_policy_arn         = "arn:aws:iam::aws:policy/AdministratorAccess"
+  tags                    = var.tags
 }
