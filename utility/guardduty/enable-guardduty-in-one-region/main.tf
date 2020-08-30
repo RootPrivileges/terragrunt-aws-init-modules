@@ -2,6 +2,7 @@ resource "aws_guardduty_detector" "default" {
   provider = aws.member
 
   finding_publishing_frequency = var.finding_publishing_frequency
+  tags                         = var.tags
 }
 
 resource "aws_guardduty_member" "member" {

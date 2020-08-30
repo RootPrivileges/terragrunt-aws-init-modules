@@ -36,4 +36,6 @@ module "guardduty" {
     aws.member-us-west-1      = aws.us-west-1
     aws.member-us-west-2      = aws.us-west-2
   }
+
+  tags = var.tags
 }
