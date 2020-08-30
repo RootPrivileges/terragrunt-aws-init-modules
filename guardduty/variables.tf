@@ -1,3 +1,10 @@
+variable "member_account_email" {
+  description = "AWS email address for member account"
+  type        = string
+
+  default = ""
+}
+
 variable "org_account_id" {
   description = "AWS account ID for the organisation account"
   type        = string
@@ -29,9 +36,9 @@ variable "org_detector_ids" {
   }
 }
 
-variable "member_account_email" {
-  description = "AWS email address for member account"
-  type        = string
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
 
-  default = ""
+  default = {}
 }

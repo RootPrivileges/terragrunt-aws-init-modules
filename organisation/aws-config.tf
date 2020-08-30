@@ -25,21 +25,13 @@ module "aws-config" {
   audit_logs_bucket_arn = aws_s3_bucket.audit_logs.arn
   audit_logs_bucket_id  = aws_s3_bucket.audit_logs.id
   region                = var.aws_region
-}
-
-data "aws_iam_policy_document" "config_organisation_assume_role_policy" {
-  statement {
-    principals {
-      type        = "Service"
-      identifiers = ["config.amazonaws.com"]
-    }
-    actions = ["sts:AssumeRole"]
-  }
+  tags                  = var.tags
 }
 
 resource "aws_iam_role" "config_organisation_aggregator" {
   name               = "OrgAWSConfigAggregatorRole"
   assume_role_policy = data.aws_iam_policy_document.config_organisation_assume_role_policy.json
+  tags               = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "config_organisation_aggregator" {
@@ -49,6 +41,7 @@ resource "aws_iam_role_policy_attachment" "config_organisation_aggregator" {
 
 resource "aws_config_configuration_aggregator" "organisation" {
   name = "organisation-aggregator"
+  tags = var.tags
 
   organization_aggregation_source {
     all_regions = true

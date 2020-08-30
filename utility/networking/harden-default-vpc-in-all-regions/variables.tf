@@ -3,6 +3,13 @@ variable "account_name" {
   type        = string
 }
 
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
+
+  default = {}
+}
+
 variable "vpc_flow_logs_publisher_role_arn" {
   description = "The ARN of the IAM Role which will be used to publish VPC Flow Logs"
   type        = string

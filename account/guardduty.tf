@@ -37,7 +37,8 @@ module "guardduty" {
     aws.member-us-west-2      = aws.member-us-west-2
   }
 
-  org_account_id    = "${var.org_account_id}"
-  org_detector_ids  = "${var.org_detector_ids}"
-  member_account_email = "${aws_organizations_account.account.email}"
+  org_account_id       = var.org_account_id
+  org_detector_ids     = var.org_detector_ids
+  member_account_email = aws_organizations_account.account.email
+  tags                 = var.tags
 }

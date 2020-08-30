@@ -5,6 +5,7 @@ module "private_subnet" {
   subnet_acl_rule_number        = var.acl_rule_number
   subnet_cidr                   = var.subnet_cidr
   subnet_name                   = "${var.availability_zone}-${var.subnet_name}"
+  tags                          = var.tags
   target_subnet_acl_id          = var.public_subnet_acl_id
   target_subnet_acl_rule_number = var.public_subnet_acl_rule_number
   target_subnet_cidr_block      = var.public_subnet_cidr_block
@@ -16,6 +17,7 @@ module "nat_gateway" {
 
   private_subnet_cidr = var.subnet_cidr
   public_subnet_id    = var.public_subnet_id
+  tags                = var.tags
   vpc_id              = var.vpc_id
 }
 

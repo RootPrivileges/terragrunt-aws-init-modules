@@ -1,6 +1,7 @@
 resource "aws_iam_user" "terragrunt_user" {
   name          = var.username
   force_destroy = true
+  tags          = var.tags
 }
 
 resource "aws_iam_user_group_membership" "terragrunt_groups" {

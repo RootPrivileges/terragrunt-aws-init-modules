@@ -5,7 +5,8 @@ module "iam_vpc_flow_logs_publisher" {
     aws = aws.member
   }
 
-  account_name = "${var.account_name}"
+  account_name = var.account_name
+  tags         = var.tags
 }
 
 module "harden_default_vpc" {
@@ -30,6 +31,7 @@ module "harden_default_vpc" {
     aws.us-west-2      = aws.member-us-west-2
   }
 
-  account_name                     = "${var.account_name}"
-  vpc_flow_logs_publisher_role_arn = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
+  account_name                     = var.account_name
+  tags                             = var.tags
+  vpc_flow_logs_publisher_role_arn = module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn
 }

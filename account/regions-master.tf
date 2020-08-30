@@ -77,4 +77,3 @@ provider "aws" {
   region = "us-west-2"
   alias  = "org-us-west-2"
 }
-

@@ -44,7 +44,7 @@ output "cloudtrail_bucket_id" {
 }
 
 output "detector_ids" {
-  value       = {
+  value = {
     "ap-northeast-1" = "${module.guardduty.detector_ap-northeast-1}"
     "ap-northeast-2" = "${module.guardduty.detector_ap-northeast-2}"
     "ap-south-1"     = "${module.guardduty.detector_ap-south-1}"

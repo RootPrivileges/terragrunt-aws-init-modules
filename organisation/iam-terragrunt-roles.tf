@@ -2,86 +2,11 @@ module "assume_role_terragrunt_administrator" {
   source = "../utility/iam/create-role-with-assume"
 
   account_name            = "org"
-  account_id              = "${data.aws_caller_identity.current.account_id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
+  account_id              = data.aws_caller_identity.current.account_id
+  assume_role_policy_json = data.aws_iam_policy_document.crossaccount_assume_from_organisation.json
   role                    = "TerragruntAdministrator"
-  role_policy_arn         = "${var.administrator_default_arn}"
-}
-
-data "aws_iam_policy_document" "terragrunt_data_administrator" {
-  statement {
-    sid = "AllowListAllS3Buckets"
-
-    actions = [
-      "s3:GetBucketLocation",
-      "s3:ListAllMyBuckets"
-    ]
-
-    resources = [
-      "*"
-    ]
-  }
-
-  statement {
-    sid = "AllowS3ActionsOnTerraformBucket"
-
-    actions = [
-      "s3:CreateBucket",
-      "s3:ListBucket",
-      "s3:GetBucketVersioning",
-      "s3:PutBucketVersioning",
-      "s3:GetBucketTagging",
-      "s3:PutBucketTagging",
-      "s3:GetEncryptionConfiguration",
-      "s3:PutEncryptionConfiguration",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${var.tfstate_global_bucket}",
-    ]
-  }
-
-  statement {
-    sid = "AllowGetAndPutS3ActionsOnTerraformBucketPath"
-
-    actions = [
-      "s3:PutObject",
-      "s3:GetObject",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${var.tfstate_global_bucket}/*",
-    ]
-  }
-
-  statement {
-    sid = "AllowCreateAndUpdateDynamoDBActionsOnTerraformLockTable"
-
-    actions = [
-      "dynamodb:PutItem",
-      "dynamodb:GetItem",
-      "dynamodb:DeleteItem",
-      "dynamodb:DescribeTable",
-      "dynamodb:CreateTable",
-    ]
-
-    resources = [
-      "arn:aws:dynamodb:*:*:table/${var.tfstate_global_dynamodb}",
-    ]
-  }
-
-  statement {
-    sid = "AllowTagAndUntagDynamoDBActions"
-
-    actions = [
-      "dynamodb:TagResource",
-      "dynamodb:UntagResource",
-    ]
-
-    resources = [
-      "*",
-    ]
-  }
+  role_policy_arn         = var.administrator_default_arn
+  tags                    = var.tags
 }
 
 resource "aws_iam_policy" "terragrunt_data_administrator" {
@@ -94,49 +19,11 @@ module "assume_role_terragrunt_data_administrator" {
   source = "../utility/iam/create-role-with-assume"
 
   account_name            = "org"
-  account_id              = "${data.aws_caller_identity.current.account_id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
+  account_id              = data.aws_caller_identity.current.account_id
+  assume_role_policy_json = data.aws_iam_policy_document.crossaccount_assume_from_organisation.json
   role                    = "TerragruntDataAdministrator"
-  role_policy_arn         = "${aws_iam_policy.terragrunt_data_administrator.arn}"
-}
-
-data "aws_iam_policy_document" "terragrunt_data_reader" {
-  statement {
-    sid = "AllowListAllS3Buckets"
-
-    actions = [
-      "s3:GetBucketLocation",
-      "s3:ListAllMyBuckets"
-    ]
-
-    resources = [
-      "*"
-    ]
-  }
-
-  statement {
-    sid = "AllowListS3ActionsOnTerraformBucket"
-
-    actions = [
-      "s3:ListBucket",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${var.tfstate_global_bucket}",
-    ]
-  }
-
-  statement {
-    sid = "AllowGetS3ActionsOnTerraformBucketPath"
-
-    actions = [
-      "s3:GetObject",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${var.tfstate_global_bucket}/*",
-    ]
-  }
+  role_policy_arn         = aws_iam_policy.terragrunt_data_administrator.arn
+  tags                    = var.tags
 }
 
 resource "aws_iam_policy" "terragrunt_data_reader" {
@@ -149,8 +36,9 @@ module "assume_role_terragrunt_data_reader" {
   source = "../utility/iam/create-role-with-assume"
 
   account_name            = "org"
-  account_id              = "${data.aws_caller_identity.current.account_id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
+  account_id              = data.aws_caller_identity.current.account_id
+  assume_role_policy_json = data.aws_iam_policy_document.crossaccount_assume_from_organisation.json
   role                    = "TerragruntDataReader"
-  role_policy_arn         = "${aws_iam_policy.terragrunt_data_reader.arn}"
+  role_policy_arn         = aws_iam_policy.terragrunt_data_reader.arn
+  tags                    = var.tags
 }

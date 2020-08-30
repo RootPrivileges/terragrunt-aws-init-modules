@@ -8,6 +8,13 @@ variable "public_subnet_id" {
   type        = string
 }
 
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
+
+  default = {}
+}
+
 variable "vpc_id" {
   description = "The ID of the account VPC"
   type        = string
