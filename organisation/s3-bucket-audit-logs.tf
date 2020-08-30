@@ -3,6 +3,7 @@ resource "aws_s3_bucket" "audit_logs" {
   #checkov:skip=CKV_AWS_52:Not currently possible to enable MFA delete through Terraform
 
   bucket = var.audit_logs_bucket_name
+  tags   = var.tags
 
   acl           = "log-delivery-write"
   force_destroy = false

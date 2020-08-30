@@ -9,5 +9,5 @@ module "iam_baseline" {
   support_iam_role_name           = "OrgSupportRole"
   support_iam_role_policy_name    = "IamSupport"
   support_iam_role_principal_arns = [aws_iam_user.support_user.arn]
-  tags                            = {}
+  tags                            = var.tags
 }
