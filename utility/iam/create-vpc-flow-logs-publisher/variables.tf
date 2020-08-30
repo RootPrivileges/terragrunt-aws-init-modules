@@ -7,7 +7,7 @@ variable "tags" {
   description = "Tags to apply to created resources"
   type        = map(string)
 
-  default     = {}
+  default = {}
 }
 
 variable "vpc_iam_role_name" {

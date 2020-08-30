@@ -7,7 +7,7 @@ variable "tags" {
   description = "Tags to apply to created resources"
   type        = map(string)
 
-  default     = {}
+  default = {}
 }
 
 variable "vpc_flow_logs_publisher_role_arn" {

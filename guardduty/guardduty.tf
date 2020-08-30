@@ -2,7 +2,7 @@ module "guardduty_baseline_ap-northeast-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ap-northeast-1
+    aws.org    = aws.org-ap-northeast-1
     aws.member = aws.member-ap-northeast-1
   }
 
@@ -16,7 +16,7 @@ module "guardduty_baseline_ap-northeast-2" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ap-northeast-2
+    aws.org    = aws.org-ap-northeast-2
     aws.member = aws.member-ap-northeast-2
   }
 
@@ -30,7 +30,7 @@ module "guardduty_baseline_ap-south-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ap-south-1
+    aws.org    = aws.org-ap-south-1
     aws.member = aws.member-ap-south-1
   }
 
@@ -44,7 +44,7 @@ module "guardduty_baseline_ap-southeast-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ap-southeast-1
+    aws.org    = aws.org-ap-southeast-1
     aws.member = aws.member-ap-southeast-1
   }
 
@@ -58,7 +58,7 @@ module "guardduty_baseline_ap-southeast-2" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ap-southeast-2
+    aws.org    = aws.org-ap-southeast-2
     aws.member = aws.member-ap-southeast-2
   }
 
@@ -72,7 +72,7 @@ module "guardduty_baseline_ca-central-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-ca-central-1
+    aws.org    = aws.org-ca-central-1
     aws.member = aws.member-ca-central-1
   }
 
@@ -86,7 +86,7 @@ module "guardduty_baseline_eu-central-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-eu-central-1
+    aws.org    = aws.org-eu-central-1
     aws.member = aws.member-eu-central-1
   }
 
@@ -100,7 +100,7 @@ module "guardduty_baseline_eu-north-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-eu-north-1
+    aws.org    = aws.org-eu-north-1
     aws.member = aws.member-eu-north-1
   }
 
@@ -114,7 +114,7 @@ module "guardduty_baseline_eu-west-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-eu-west-1
+    aws.org    = aws.org-eu-west-1
     aws.member = aws.member-eu-west-1
   }
 
@@ -128,7 +128,7 @@ module "guardduty_baseline_eu-west-2" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-eu-west-2
+    aws.org    = aws.org-eu-west-2
     aws.member = aws.member-eu-west-2
   }
 
@@ -142,7 +142,7 @@ module "guardduty_baseline_eu-west-3" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-eu-west-3
+    aws.org    = aws.org-eu-west-3
     aws.member = aws.member-eu-west-3
   }
 
@@ -156,7 +156,7 @@ module "guardduty_baseline_sa-east-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-sa-east-1
+    aws.org    = aws.org-sa-east-1
     aws.member = aws.member-sa-east-1
   }
 
@@ -170,7 +170,7 @@ module "guardduty_baseline_us-east-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-us-east-1
+    aws.org    = aws.org-us-east-1
     aws.member = aws.member-us-east-1
   }
 
@@ -184,7 +184,7 @@ module "guardduty_baseline_us-east-2" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-us-east-2
+    aws.org    = aws.org-us-east-2
     aws.member = aws.member-us-east-2
   }
 
@@ -198,7 +198,7 @@ module "guardduty_baseline_us-west-1" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-us-west-1
+    aws.org    = aws.org-us-west-1
     aws.member = aws.member-us-west-1
   }
 
@@ -212,7 +212,7 @@ module "guardduty_baseline_us-west-2" {
   source = "../utility/guardduty/enable-guardduty-in-one-region"
 
   providers = {
-    aws.org = aws.org-us-west-2
+    aws.org    = aws.org-us-west-2
     aws.member = aws.member-us-west-2
   }
 
