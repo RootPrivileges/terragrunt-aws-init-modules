@@ -26,4 +26,5 @@ module "aws-config" {
   audit_logs_bucket_arn = "${var.audit_logs_bucket_arn}"
   audit_logs_bucket_id  = "${var.audit_logs_bucket_id}"
   region                = "${var.aws_region}"
+  tags                  = var.tags
 }

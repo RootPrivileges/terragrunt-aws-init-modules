@@ -13,6 +13,7 @@ module "create_role" {
   assume_role_policy_json = "${var.assume_role_policy_json}"
   role                    = "${var.role}"
   role_policy_arn         = "${var.role_policy_arn}"
+  tags                    = var.tags
 }
 
 module "assume_role" {

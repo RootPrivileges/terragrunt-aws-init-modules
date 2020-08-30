@@ -40,4 +40,5 @@ module "guardduty" {
   org_account_id       = "${var.org_account_id}"
   org_detector_ids     = "${var.org_detector_ids}"
   member_account_email = "${aws_organizations_account.account.email}"
+  tags                 = var.tags
 }
