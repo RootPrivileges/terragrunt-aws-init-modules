@@ -1,6 +1,7 @@
 resource "aws_iam_user" "developer_user" {
   name          = var.email_address
   force_destroy = true
+  tags          = var.tags
 }
 
 resource "aws_iam_user_login_profile" "developer_user" {
