@@ -4,5 +4,5 @@ module "alarm_baseline" {
   alarm_namespace           = "CloudWatchAlarm"
   cloudtrail_log_group_name = "cloudtrail-multi-region"
   sns_topic_name            = "CloudWatchAlarms"
-  tags                      = {}
+  tags                      = var.tags
 }

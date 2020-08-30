@@ -7,5 +7,5 @@ module "cloudtrail_baseline" {
   is_organization_trail = true
   region                = "${var.aws_region}"
   s3_bucket_name        = "${aws_s3_bucket.cloudtrail.id}"
-  tags                  = {}
+  tags                  = var.tags
 }
