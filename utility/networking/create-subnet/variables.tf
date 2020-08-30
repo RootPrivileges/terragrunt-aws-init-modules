@@ -20,6 +20,13 @@ variable "subnet_name" {
   type        = string
 }
 
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
+
+  default = {}
+}
+
 variable "target_subnet_acl_id" {
   description = "The ID of the target subnet network ACL"
   type        = string

@@ -1,15 +1,24 @@
+locals {
+  merged_tags = merge(
+    {
+      Name = var.subnet_name
+    },
+    var.tags
+  )
+}
+
 resource "aws_subnet" "subnet" {
   availability_zone = var.availability_zone
   cidr_block        = var.subnet_cidr
   vpc_id            = var.vpc_id
 
-  tags = {
-    Name = var.subnet_name
-  }
+  tags = local.merged_tags
 }
 
 resource "aws_route_table" "route_table" {
   vpc_id = var.vpc_id
+
+  tags = local.merged_tags
 }
 
 resource "aws_route_table_association" "route_table_association" {
@@ -21,7 +30,5 @@ resource "aws_network_acl" "subnet_acl" {
   subnet_ids = [aws_subnet.subnet.id]
   vpc_id     = var.vpc_id
 
-  tags = {
-    Name = var.subnet_name
-  }
+  tags = local.merged_tags
 }
