@@ -5,7 +5,7 @@ module "cloudtrail_baseline" {
   iam_role_name         = "OrgCloudtrailCloudWatchDeliveryRole"
   iam_role_policy_name  = "CloudtrailCloudWatchDelivery"
   is_organization_trail = true
-  region                = "${var.aws_region}"
-  s3_bucket_name        = "${aws_s3_bucket.cloudtrail.id}"
+  region                = var.aws_region
+  s3_bucket_name        = aws_s3_bucket.cloudtrail.id
   tags                  = var.tags
 }

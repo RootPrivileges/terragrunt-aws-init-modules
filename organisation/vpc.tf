@@ -29,5 +29,5 @@ module "harden_default_vpc" {
 
   account_name                     = "organisation-account"
   tags                             = var.tags
-  vpc_flow_logs_publisher_role_arn = "${module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn}"
+  vpc_flow_logs_publisher_role_arn = module.iam_vpc_flow_logs_publisher.vpc_flow_logs_publisher_role_arn
 }

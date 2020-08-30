@@ -16,11 +16,11 @@ module "assume_role_account_administrator" {
     aws.assume_account = aws.member
   }
 
-  account_name            = "${var.account_name}"
-  account_id              = "${aws_organizations_account.account.id}"
-  assume_role_policy_json = "${data.aws_iam_policy_document.crossaccount_assume_from_organisation.json}"
+  account_name            = var.account_name
+  account_id              = aws_organizations_account.account.id
+  assume_role_policy_json = data.aws_iam_policy_document.crossaccount_assume_from_organisation.json
   role                    = "Administrator"
-  role_policy_arn         = "${var.administrator_default_arn}"
+  role_policy_arn         = var.administrator_default_arn
   tags                    = var.tags
 }
 

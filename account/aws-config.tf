@@ -21,10 +21,10 @@ module "aws-config" {
     aws.us-west-2      = aws.member-us-west-2
   }
 
-  account_id            = "${aws_organizations_account.account.id}"
-  account_name          = "${var.account_name}"
-  audit_logs_bucket_arn = "${var.audit_logs_bucket_arn}"
-  audit_logs_bucket_id  = "${var.audit_logs_bucket_id}"
-  region                = "${var.aws_region}"
+  account_id            = aws_organizations_account.account.id
+  account_name          = var.account_name
+  audit_logs_bucket_arn = var.audit_logs_bucket_arn
+  audit_logs_bucket_id  = var.audit_logs_bucket_id
+  region                = var.aws_region
   tags                  = var.tags
 }
