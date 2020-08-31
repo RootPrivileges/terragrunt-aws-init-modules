@@ -32,6 +32,11 @@ variable "public_subnet_id" {
   type        = string
 }
 
+variable "public_subnet_name" {
+  description = "The name of the public subnet"
+  type        = string
+}
+
 variable "subnet_cidr" {
   description = "The intended CIDR range of the subnet"
   type        = string

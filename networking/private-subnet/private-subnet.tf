@@ -15,7 +15,7 @@ module "private_subnet" {
 module "nat_gateway" {
   source = "../../utility/networking/create-nat-gateway"
 
-  count = var.public_subnet_id != "" ? 1 : 0
+  count = var.public_subnet_name != "" ? 1 : 0
 
   private_subnet_cidr = var.subnet_cidr
   public_subnet_id    = var.public_subnet_id
@@ -24,7 +24,7 @@ module "nat_gateway" {
 }
 
 resource "aws_route" "nat_gateway_route" {
-  count = var.public_subnet_id != "" ? 1 : 0
+  count = var.public_subnet_name != "" ? 1 : 0
 
   route_table_id         = module.private_subnet.route_table_id
   destination_cidr_block = "0.0.0.0/0"
