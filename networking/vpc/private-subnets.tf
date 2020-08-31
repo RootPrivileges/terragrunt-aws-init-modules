@@ -1,23 +1,6 @@
 locals {
-  # Set values for keys which may not be set in input definitions (i.e. subnets without NAT gateways)
-  default_map_keys = {
-    private_acl_rule_number = 0
-    public_acl_rule_number  = 0
-    public_subnet_name      = ""
-  }
-
-  # Merge missing default keys into subnet map
-  private_subnets_json = jsondecode(var.private_subnets)
-  merged_list = [
-    for subnet, config in local.private_subnets_json : {
-      "${subnet}" = merge(local.default_map_keys, config)
-    }
-  ]
-  merged_map = { for item in local.merged_list :
-    keys(item)[0] => values(item)[0]
-  }
-
-  # Create a new list of subnets, one for each defined AZ of each defined private subnet
+  # Create a new list of subnets, creating a new entry for each defined AZ of each defined public subnet
+  # (i.e. ["a", "b", "c"] in eu-west-1 will expand to three subnets, ["eu-west-1a", "eu-west-1b", "eu-west-1c"])
   private_subnet_list = flatten([
     for subnet, config in local.merged_map : [
       for az in config.availability_zones : {

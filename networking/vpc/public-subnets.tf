@@ -1,6 +1,6 @@
 locals {
   # Create a new list of subnets, creating a new entry for each defined AZ of each defined public subnet
-  # (i.e. ["a", "b", "c"] in eu-west-1 will expand to three subnets, ["eu-west-1a", "eu-west-1b", "eu-west-1c", )
+  # (i.e. ["a", "b", "c"] in eu-west-1 will expand to three subnets, ["eu-west-1a", "eu-west-1b", "eu-west-1c"])
   public_subnet_list = flatten([
     for subnet, config in var.public_subnets : [
       for az in config.availability_zones : {

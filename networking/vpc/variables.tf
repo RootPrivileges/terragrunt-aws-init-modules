@@ -46,3 +46,23 @@ variable "vpc_log_retention_in_days" {
 
   default = 365
 }
+
+locals {
+  # Set values for private_subnet keys which may not be set in input definitions (i.e. subnets without NAT gateways)
+  default_map_keys = {
+    private_acl_rule_number = 0
+    public_acl_rule_number  = 0
+    public_subnet_name      = ""
+  }
+
+  # Merge missing default keys into private_subnet map
+  private_subnets_json = jsondecode(var.private_subnets)
+  merged_list = [
+    for subnet, config in local.private_subnets_json : {
+      "${subnet}" = merge(local.default_map_keys, config)
+    }
+  ]
+  merged_map = { for item in local.merged_list :
+    keys(item)[0] => values(item)[0]
+  }
+}
