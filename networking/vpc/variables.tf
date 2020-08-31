@@ -13,6 +13,14 @@ variable "cidr_block" {
   type        = string
 }
 
+variable "public_subnets" {
+  description = "The subnets to create as part of the VPC"
+  type = map(object({
+    cidr               = string
+    availability_zones = list(string)
+  }))
+}
+
 variable "vpc_flow_logs_publisher_role_arn" {
   description = "The ARN of the IAM Role which will be used to publish VPC Flow Logs"
   type        = string
