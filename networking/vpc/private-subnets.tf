@@ -10,7 +10,7 @@ locals {
           "name"                    = subnet
           "private_acl_rule_number" = config.private_acl_rule_number
           "public_acl_rule_number"  = config.public_acl_rule_number
-          "public_subnet_name"      = config.public_subnet_name
+          "public_subnet_name"      = config.public_subnet_name != "" ? "${var.aws_region}${az}-${config.public_subnet_name}" : ""
         }
       }
     ]
@@ -27,12 +27,11 @@ module "private_subnet" {
 
   acl_rule_number               = each.value.private_acl_rule_number
   availability_zone             = each.value.availability_zone
-  public_subnet_acl_id          = each.value.public_subnet_name != "" ? module.public_subnet["${each.value.availability_zone}-${each.value.public_subnet_name}"].acl_id : ""
+  public_subnet_acl_id          = each.value.public_subnet_name != "" ? module.public_subnets["${each.value.public_subnet_name}"].acl_id : ""
   public_subnet_acl_rule_number = each.value.public_acl_rule_number
   public_subnet_name            = each.value.public_subnet_name
-  public_subnet_cidr_block      = each.value.public_subnet_name != "" ? module.public_subnet["${each.value.availability_zone}-${each.value.public_subnet_name}"].cidr_block : ""
-  public_subnet_id              = each.value.public_subnet_name != "" ? module.public_subnet["${each.value.availability_zone}-${each.value.public_subnet_name}"].subnet_id : ""
-  subnet_cidr                   = each.value.cidr
+  public_subnet_cidr_block      = each.value.public_subnet_name != "" ? module.public_subnets["${each.value.public_subnet_name}"].cidr_block : ""
+  public_subnet_id              = each.value.public_subnet_name != "" ? module.public_subnets["${each.value.public_subnet_name}"].subnet_id : ""
   subnet_name                   = each.value.name
   tags                          = var.tags
   vpc_id                        = aws_vpc.vpc.id
