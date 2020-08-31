@@ -13,6 +13,13 @@ variable "cidr_block" {
   type        = string
 }
 
+variable "private_subnets" {
+  description = "The subnets to create as part of the VPC"
+  type        = string
+
+  default = ""
+}
+
 variable "public_subnets" {
   description = "The subnets to create as part of the VPC"
   type = map(object({

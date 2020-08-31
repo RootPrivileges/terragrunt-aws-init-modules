@@ -9,7 +9,7 @@ output "cidr_block" {
 }
 
 output "nat_gateway_id" {
-  value       = "${module.nat_gateway.nat_gateway_id}"
+  value       = "${join("", module.nat_gateway.*.nat_gateway_id)}"
   description = "The ID of the subnet NAT gateway"
 }
 
