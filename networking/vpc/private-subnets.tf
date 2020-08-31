@@ -15,12 +15,13 @@ locals {
       }
     ]
   ])
+
   private_subnets = { for item in local.private_subnet_list :
     keys(item)[0] => values(item)[0]
   }
 }
 
-module "private_subnet" {
+module "private_subnets" {
   source = "../private-subnet"
 
   for_each = local.private_subnets

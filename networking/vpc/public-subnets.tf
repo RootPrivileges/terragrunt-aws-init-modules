@@ -12,12 +12,13 @@ locals {
       }
     ]
   ])
+
   public_subnets = { for item in local.public_subnet_list :
     keys(item)[0] => values(item)[0]
   }
 }
 
-module "public_subnet" {
+module "public_subnets" {
   source = "../public-subnet"
 
   for_each = local.public_subnets
