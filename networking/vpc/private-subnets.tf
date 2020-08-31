@@ -5,7 +5,7 @@ locals {
     for subnet, config in local.merged_map : [
       for az in config.availability_zones : {
         "${var.aws_region}${az}-${subnet}" = {
-          "cidr"                    = cidrsubnet(config.cidr, length(config.availability_zones) - 1, index(config.availability_zones, az))
+          "cidr_size"               = config.cidr_size
           "availability_zone"       = "${var.aws_region}${az}"
           "name"                    = subnet
           "private_acl_rule_number" = config.private_acl_rule_number
@@ -33,6 +33,7 @@ module "private_subnets" {
   public_subnet_name            = each.value.public_subnet_name
   public_subnet_cidr_block      = each.value.public_subnet_name != "" ? module.public_subnets["${each.value.public_subnet_name}"].cidr_block : ""
   public_subnet_id              = each.value.public_subnet_name != "" ? module.public_subnets["${each.value.public_subnet_name}"].subnet_id : ""
+  subnet_cidr                   = lookup(local.subnet_allocations, each.key)
   subnet_name                   = each.value.name
   tags                          = var.tags
   vpc_id                        = aws_vpc.vpc.id

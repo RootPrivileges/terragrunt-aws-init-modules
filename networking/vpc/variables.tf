@@ -23,7 +23,7 @@ variable "private_subnets" {
 variable "public_subnets" {
   description = "The subnets to create as part of the VPC"
   type = map(object({
-    cidr               = string
+    cidr_size          = string
     availability_zones = list(string)
   }))
 }
@@ -65,4 +65,24 @@ locals {
   merged_map = { for item in local.merged_list :
     keys(item)[0] => values(item)[0]
   }
+
+  cidr_slash_mask = "${element(split("/", var.cidr_block), 1)}"
+
+  # Map of CIDR blocks to carve into subnets based on size
+  subnet_cidr_map = {
+    xsmall = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 0)
+    small  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 4)
+    medium = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 8)
+    large  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 12)
+  }
+
+  # Map the friendly name to our subnet bit mask
+  newbit_size = {
+    xsmall = "9"
+    small  = "8"
+    medium = "6"
+    large  = "5"
+  }
+
+  all_subnets = merge(local.private_subnets, local.public_subnets)
 }

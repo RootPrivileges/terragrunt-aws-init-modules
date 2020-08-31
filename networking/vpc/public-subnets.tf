@@ -5,7 +5,7 @@ locals {
     for subnet, config in var.public_subnets : [
       for az in config.availability_zones : {
         "${var.aws_region}${az}-${subnet}" = {
-          "cidr"              = cidrsubnet(config.cidr, length(config.availability_zones) - 1, index(config.availability_zones, az))
+          "cidr_size"         = config.cidr_size
           "availability_zone" = "${var.aws_region}${az}"
           "name"              = subnet
         }
@@ -24,7 +24,7 @@ module "public_subnets" {
   for_each = local.public_subnets
 
   availability_zone       = each.value.availability_zone
-  subnet_cidr             = each.value.cidr
+  subnet_cidr             = lookup(local.subnet_allocations, each.key)
   subnet_name             = each.value.name
   tags                    = var.tags
   vpc_id                  = aws_vpc.vpc.id
