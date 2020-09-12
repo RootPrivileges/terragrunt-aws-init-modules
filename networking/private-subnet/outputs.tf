@@ -22,3 +22,8 @@ output "subnet_id" {
   value       = "${module.private_subnet.subnet_id}"
   description = "The ID of the subnet"
 }
+
+output "tgw_attachment" {
+  value       = "${var.tgw_attachment}"
+  description = "Should this subnet be attached to a TGW"
+}

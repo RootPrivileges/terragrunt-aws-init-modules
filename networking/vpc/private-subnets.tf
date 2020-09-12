@@ -12,6 +12,7 @@ locals {
           "private_acl_rule_number" = config.private_acl_rule_number
           "public_acl_rule_number"  = config.public_acl_rule_number
           "public_subnet_name"      = config.public_subnet_name != "" ? "${var.aws_region}${az}-${config.public_subnet_name}" : ""
+          "tgw_attachment"          = config.tgw_attachment
         }
       }
     ]
@@ -39,5 +40,6 @@ module "private_subnets" {
   subnet_cidr                   = lookup(local.subnet_allocations, each.key)
   subnet_name                   = "${var.environment}-${each.value.name}"
   tags                          = var.tags
+  tgw_attachment                = each.value.tgw_attachment
   vpc_id                        = aws_vpc.vpc.id
 }

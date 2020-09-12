@@ -66,6 +66,11 @@ variable "tags" {
   default = {}
 }
 
+variable "tgw_attachment" {
+  description = "Will this subnet have a Transit Gateway attachment"
+  type        = bool
+}
+
 variable "vpc_id" {
   description = "The ID of the account VPC"
   type        = string

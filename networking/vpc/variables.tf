@@ -61,6 +61,7 @@ locals {
     private_acl_rule_number = 0
     public_acl_rule_number  = 0
     public_subnet_name      = ""
+    tgw_attachment          = false
   }
 
   # Merge missing default keys into private_subnet map
