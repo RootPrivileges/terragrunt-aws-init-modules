@@ -48,6 +48,13 @@ variable "vpc_log_retention_in_days" {
 }
 
 locals {
+  merged_tags = merge(
+    {
+      Name = "${var.environment}"
+    },
+    var.tags
+  )
+
   # Set values for private_subnet keys which may not be set in input definitions (i.e. subnets without NAT gateways)
   default_map_keys = {
     private_acl_rule_number = 0
