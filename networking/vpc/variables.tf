@@ -28,6 +28,20 @@ variable "public_subnets" {
   }))
 }
 
+variable "transit_gateway_id" {
+  description = "The ID of the TGW to connect subnets to"
+  type        = string
+
+  default = ""
+}
+
+variable "transit_gateway_route_table_id" {
+  description = "The ID of the TGW route table"
+  type        = string
+
+  default = ""
+}
+
 variable "vpc_flow_logs_publisher_role_arn" {
   description = "The ARN of the IAM Role which will be used to publish VPC Flow Logs"
   type        = string
