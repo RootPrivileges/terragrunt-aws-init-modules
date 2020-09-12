@@ -57,6 +57,7 @@ locals {
 
   # Set values for private_subnet keys which may not be set in input definitions (i.e. subnets without NAT gateways)
   default_map_keys = {
+    create_nat_gateway      = false
     private_acl_rule_number = 0
     public_acl_rule_number  = 0
     public_subnet_name      = ""
