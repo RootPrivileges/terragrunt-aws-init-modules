@@ -70,15 +70,13 @@ locals {
 
   # Map of CIDR blocks to carve into subnets based on size
   subnet_cidr_map = {
-    xsmall = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 0)
-    small  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 4)
-    medium = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 8)
-    large  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 12)
+    small  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 0)  #  14 usable
+    medium = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 4)  #  62 usable
+    large  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 12) # 126 usable
   }
 
   # Map the friendly name to our subnet bit mask
   newbit_size = {
-    xsmall = "9"
     small  = "8"
     medium = "6"
     large  = "5"
