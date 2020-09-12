@@ -24,7 +24,7 @@ module "nat_gateway" {
 
   tags = merge(
     {
-      Name = "${var.availability_zone}-${var.environment}"
+      Name = "${var.environment}-${var.availability_zone}"
     },
     var.tags
   )

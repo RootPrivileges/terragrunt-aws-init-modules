@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_default_security_group" "default_sg" {
   vpc_id = aws_vpc.vpc.id
-  tags   = var.tags
+  tags   = local.merged_tags
 }
 
 resource "aws_default_network_acl" "default_nacl" {

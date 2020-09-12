@@ -37,7 +37,7 @@ module "private_subnets" {
   public_subnet_cidr_block      = each.value.create_nat_gateway ? module.public_subnets["${each.value.public_subnet_name}"].cidr_block : ""
   public_subnet_id              = each.value.create_nat_gateway ? module.public_subnets["${each.value.public_subnet_name}"].subnet_id : ""
   subnet_cidr                   = lookup(local.subnet_allocations, each.key)
-  subnet_name                   = each.value.name
+  subnet_name                   = "${var.environment}-${each.value.name}"
   tags                          = var.tags
   vpc_id                        = aws_vpc.vpc.id
 }
