@@ -5,7 +5,7 @@ locals {
     },
     var.tags
   )
-  name = "${var.availability_zone}-${var.subnet_name}"
+  name = "${var.subnet_name}-${var.availability_zone}"
 }
 
 resource "aws_subnet" "subnet" {

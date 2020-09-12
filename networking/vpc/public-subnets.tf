@@ -25,7 +25,7 @@ module "public_subnets" {
 
   availability_zone       = each.value.availability_zone
   subnet_cidr             = lookup(local.subnet_allocations, each.key)
-  subnet_name             = each.value.name
+  subnet_name             = "${var.environment}-${each.value.name}"
   tags                    = var.tags
   vpc_id                  = aws_vpc.vpc.id
   vpc_internet_gateway_id = aws_internet_gateway.gw.id

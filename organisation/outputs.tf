@@ -71,6 +71,11 @@ output "organisation_admin_role_policy_arn" {
   description = "The ARN of the Administrator role policy for the Organisation"
 }
 
+output "organisation_arn" {
+  value       = "${var.organisation_arn}"
+  description = "The ARN for the Organisation"
+}
+
 output "support_user_name" {
   value       = "${aws_iam_user.support_user.name}"
   description = "The login username of the user able to assume the AWS support role"

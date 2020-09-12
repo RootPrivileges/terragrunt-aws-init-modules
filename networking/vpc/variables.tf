@@ -3,13 +3,13 @@ variable "account_id" {
   type        = string
 }
 
-variable "account_name" {
-  description = "The name of the account"
+variable "cidr_block" {
+  description = "The CIDR block to assign to the VPC"
   type        = string
 }
 
-variable "cidr_block" {
-  description = "The CIDR block to assign to the VPC"
+variable "environment" {
+  description = "The name of the environment being created"
   type        = string
 }
 
@@ -26,6 +26,20 @@ variable "public_subnets" {
     cidr_size          = string
     availability_zones = list(string)
   }))
+}
+
+variable "transit_gateway_id" {
+  description = "The ID of the TGW to connect subnets to"
+  type        = string
+
+  default = ""
+}
+
+variable "transit_gateway_route_table_id" {
+  description = "The ID of the TGW route table"
+  type        = string
+
+  default = ""
 }
 
 variable "vpc_flow_logs_publisher_role_arn" {
@@ -48,11 +62,20 @@ variable "vpc_log_retention_in_days" {
 }
 
 locals {
+  merged_tags = merge(
+    {
+      Name = "${var.environment}"
+    },
+    var.tags
+  )
+
   # Set values for private_subnet keys which may not be set in input definitions (i.e. subnets without NAT gateways)
   default_map_keys = {
+    create_nat_gateway      = false
     private_acl_rule_number = 0
     public_acl_rule_number  = 0
     public_subnet_name      = ""
+    tgw_attachment          = false
   }
 
   # Merge missing default keys into private_subnet map
@@ -70,15 +93,13 @@ locals {
 
   # Map of CIDR blocks to carve into subnets based on size
   subnet_cidr_map = {
-    xsmall = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 0)
-    small  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 4)
-    medium = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 8)
-    large  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 12)
+    small  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 0)  #  14 usable
+    medium = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 4)  #  62 usable
+    large  = cidrsubnet(var.cidr_block, 20 - local.cidr_slash_mask, 12) # 126 usable
   }
 
   # Map the friendly name to our subnet bit mask
   newbit_size = {
-    xsmall = "9"
     small  = "8"
     medium = "6"
     large  = "5"

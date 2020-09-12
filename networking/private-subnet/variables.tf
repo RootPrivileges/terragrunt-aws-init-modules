@@ -10,6 +10,18 @@ variable "availability_zone" {
   type        = string
 }
 
+variable "create_nat_gateway" {
+  description = "Flag to control creation of NAT gateway inside subnet"
+  type        = bool
+
+  default = false
+}
+
+variable "environment" {
+  description = "The name of the environment holding the subnet"
+  type        = string
+}
+
 variable "public_subnet_acl_id" {
   description = "The ID of the public subnet network ACL"
   type        = string
@@ -52,6 +64,11 @@ variable "tags" {
   type        = map(string)
 
   default = {}
+}
+
+variable "tgw_attachment" {
+  description = "Will this subnet have a Transit Gateway attachment"
+  type        = bool
 }
 
 variable "vpc_id" {

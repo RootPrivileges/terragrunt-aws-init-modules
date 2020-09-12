@@ -12,3 +12,8 @@ output "subnet_id" {
   value       = "${aws_subnet.subnet.id}"
   description = "The ID of the subnet"
 }
+
+output "subnet_name" {
+  value       = "${local.name}"
+  description = "The name of the subnet"
+}
