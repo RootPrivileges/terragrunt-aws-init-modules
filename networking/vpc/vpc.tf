@@ -27,7 +27,7 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_cloudwatch_log_group" "vpc_flow_logs" {
-  name              = "${var.account_name}-${var.vpc_log_group_name}"
+  name              = "${var.environment}-${var.vpc_log_group_name}"
   retention_in_days = var.vpc_log_retention_in_days
   tags              = var.tags
 }

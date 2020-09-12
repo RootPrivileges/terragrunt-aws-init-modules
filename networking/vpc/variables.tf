@@ -3,13 +3,13 @@ variable "account_id" {
   type        = string
 }
 
-variable "account_name" {
-  description = "The name of the account"
+variable "cidr_block" {
+  description = "The CIDR block to assign to the VPC"
   type        = string
 }
 
-variable "cidr_block" {
-  description = "The CIDR block to assign to the VPC"
+variable "environment" {
+  description = "The name of the environment being created"
   type        = string
 }
 
