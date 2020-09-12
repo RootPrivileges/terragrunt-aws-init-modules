@@ -1,10 +1,11 @@
 locals {
   merged_tags = merge(
     {
-      Name = var.subnet_name
+      Name = local.name
     },
     var.tags
   )
+  name = "${var.availability_zone}-${var.subnet_name}"
 }
 
 resource "aws_subnet" "subnet" {

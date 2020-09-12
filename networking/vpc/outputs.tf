@@ -3,6 +3,14 @@ output "internet_gateway_id" {
   description = "The ID of the VPC internet gateway"
 }
 
+output "private_subnets" {
+  value = module.private_subnets
+}
+
+output "public_subnets" {
+  value = module.public_subnets
+}
+
 output "vpc_id" {
   value       = "${aws_vpc.vpc.id}"
   description = "The ID of the VPC"

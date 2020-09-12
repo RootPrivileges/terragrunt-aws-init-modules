@@ -1,8 +1,3 @@
-variable "account_id" {
-  description = "The ID of the account"
-  type        = string
-}
-
 variable "acl_rule_number" {
   description = "The ACL rule number for the new subnet"
   type        = number
@@ -38,7 +33,7 @@ variable "public_subnet_id" {
 }
 
 variable "public_subnet_name" {
-  description = "The name of the folder holding the subnet to create the NAT gateway in"
+  description = "The name of the public subnet"
   type        = string
 }
 
@@ -52,11 +47,11 @@ variable "subnet_name" {
   type        = string
 }
 
-variable "target_subnet" {
-  description = "The name of the subnet to create bi-directional network ACLs with"
-  type        = string
+variable "tags" {
+  description = "Tags to apply to created resources"
+  type        = map(string)
 
-  default = ""
+  default = {}
 }
 
 variable "vpc_id" {
