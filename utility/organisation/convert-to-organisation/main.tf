@@ -4,7 +4,8 @@ resource "aws_organizations_organization" "organisation" {
   aws_service_access_principals = [
     "cloudtrail.amazonaws.com",
     "config.amazonaws.com",
-    "config-multiaccountsetup.amazonaws.com"
+    "config-multiaccountsetup.amazonaws.com",
+    "ram.amazonaws.com",
   ]
 
   lifecycle {

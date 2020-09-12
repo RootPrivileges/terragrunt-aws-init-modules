@@ -54,6 +54,11 @@ variable "organisation_admin_role_policy_arn" {
   type        = string
 }
 
+variable "organisation_arn" {
+  description = "The ARN for the Organisation"
+  type        = string
+}
+
 variable "tfstate_global_bucket" {
   description = "The S3 bucket that holds Terraform state"
   type        = string
